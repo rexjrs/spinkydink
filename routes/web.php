@@ -1,5 +1,5 @@
 <?php
-
+date_default_timezone_set('Asia/Bangkok');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,11 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
-
+Route::get('/', function(){
+	return redirect('home');
+});
 Route::get('/home', 'HomeController@index');
