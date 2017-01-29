@@ -16,3 +16,4 @@ Route::get('/', function(){
 });
 Route::get('/home', 'HomeController@index');
 Route::get('/auctions', 'AuctionController@index');
+Route::get('/profile', 'ProfileController@index');

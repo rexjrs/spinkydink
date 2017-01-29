@@ -11,9 +11,12 @@
     .pagefooter{
         margin-top: -50px;
     }
+    .section-login{
+        padding-top: 20px;
+    }
 </style>
 <div class="container">
-    <div class="row">
+    <div class="row section-login">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
@@ -61,10 +64,12 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-success">
                                     Login
                                 </button>
-
+                                <a href="{{url('/register')}}"><button type="button" class="btn btn-danger">
+                                    Sign Up
+                                </button></a>
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">
                                     Forgot Your Password?
                                 </a>

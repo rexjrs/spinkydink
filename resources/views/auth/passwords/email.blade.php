@@ -1,8 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
+<style type="text/css">
+    #app{
+        height: 100vh;
+    }
+    #main-content{
+        height: 100%;
+    }
+    .pagefooter{
+        margin-top: -50px;
+    }
+    .section-reset{
+        padding-top: 20px;
+    }
+</style>
 <div class="container">
-    <div class="row">
+    <div class="row section-reset">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Reset Password</div>
@@ -32,7 +46,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-success">
                                     Send Password Reset Link
                                 </button>
                             </div>

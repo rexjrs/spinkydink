@@ -1,0 +1,26 @@
+.profile-img{
+	border-radius: 400px;
+	border: 1px solid #ccc;
+	box-shadow: 0px 0px 20px -8px black;
+}
+.address-section input{
+	border: 1px solid #ccc;
+	padding-left: 30px;
+	width: 100%;
+	border-radius: 4px;
+}
+.section-all{
+	padding-bottom: 20px;
+}
+.auction-section{
+	min-height: 400px;
+}
+.auction-container{
+	margin-top: 20px;
+}
+.auction-wrapper{
+	border: 1px solid #ccc;
+	overflow: auto;
+	padding: 10px;
+	box-shadow: 0px 0px 20px -8px black;
+}

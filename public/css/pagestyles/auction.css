@@ -18,3 +18,20 @@
 .width-searchbar{
 	max-width: 300px;
 }
+.clock{
+	margin-bottom: 10px;
+	color: red;
+}
+.auction-container{
+	padding: 10px;
+	border: 1px solid #ccc;
+	box-shadow: 0px 0px 20px -8px black;
+	background: white;
+	margin-top: 20px;
+}
+.auction-container img{
+	border: 1px solid #ccc;
+}
+.section-auction{
+	padding-bottom: 20px;
+}

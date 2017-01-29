@@ -51,7 +51,7 @@
               <ul class="nav navbar-nav">
                 <li class="active"><a href="{{ url('/')}}">Home</a></li>
                 <li><a href="{{ url('/auctions')}}">Auctions</a></li>
-                <li><a href="#">My Store</a></li> 
+                <li><a href="{{ url('/profile')}}">My Store</a></li> 
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 @if (Auth::guest())
