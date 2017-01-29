@@ -1,6 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
+<style type="text/css">
+    #app{
+        height: 100vh;
+    }
+    #main-content{
+        height: 100%;
+    }
+    .pagefooter{
+        margin-top: -50px;
+    }
+</style>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

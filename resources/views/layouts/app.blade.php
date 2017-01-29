@@ -50,7 +50,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="{{ url('/')}}">Home</a></li>
-                <li><a href="#">Auctions</a></li>
+                <li><a href="{{ url('/auctions')}}">Auctions</a></li>
                 <li><a href="#">My Store</a></li> 
               </ul>
               <ul class="nav navbar-nav navbar-right">
@@ -59,25 +59,45 @@
                 <li class="hidden-md hidden-lg"><a href="{{ url('/register') }}">Register</a></li>
                 <li class="dropdown hidden-sm hidden-xs">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <span class="glyphicon glyphicon-log-in"></span> Login<span class="caret"></span>
+                        <span class="glyphicon glyphicon-log-in"></span> Login <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu signup-form" role="menu">
-                        <li>
-                            <label>Username</label>
-                            <input type="text" name="" placeholder="">
-                        </li>
-                        <li>
-                            <label>Password</label>
-                            <input type="text" name="" placeholder="">
-                        </li>
-                        <li>
-                            <button class="btn btn-success btn-md">Submit</button>
-                        </li>
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+                        {{ csrf_field() }}
+                            <li>
+                                <label>Username</label>
+                                <input type="text" name="username" value="{{ old('username') }}" required="">
+                                @if ($errors->has('username'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+                                @endif
+                            </li>
+                            <li>
+                                <label>Password</label>
+                                <input type="password" name="password" placeholder="" required="">
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </li>
+                            <li>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-success btn-md">Submit</button>
+                            </li>
+                        </form>
                     </ul>
                 </li>
                 <li class="dropdown hidden-sm hidden-xs">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        Register<span class="caret"></span>
+                        Register <span class="caret"></span>
                     </a>
 
                     <ul class="dropdown-menu signup-form" role="menu">
@@ -91,11 +111,11 @@
                         </li>
                         <li>
                             <label>Password</label>
-                            <input type="text" name="" placeholder="">
+                            <input type="password" name="" placeholder="">
                         </li>
                         <li>
                             <label>Re-Enter Password</label>
-                            <input type="text" name="" placeholder="">
+                            <input type="password" name="" placeholder="">
                         </li>
                         <li>
                             <button class="btn btn-success btn-md">Submit</button>

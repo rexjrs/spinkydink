@@ -15,3 +15,4 @@ Route::get('/', function(){
 	return redirect('home');
 });
 Route::get('/home', 'HomeController@index');
+Route::get('/auctions', 'AuctionController@index');
