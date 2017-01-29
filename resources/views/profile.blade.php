@@ -38,7 +38,7 @@
         <div class="col-md-12 text-center">
             <h3>My Auctions</h3>
             <hr>
-            <button class="btn btn-info btn-md">New Auction</button>
+            <a href="{{url('/newproduct')}}"><button class="btn btn-info btn-md">New Auction</button></a>
         </div>
     </div>
     <div class="row auction-section">

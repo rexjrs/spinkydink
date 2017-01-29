@@ -31,7 +31,59 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                            <label for="itemdesc" class="col-md-2 control-label">Decsription</label>
+
+                            <div class="col-md-10">
+                                <textarea id="itemdesc" class="form-control" name="itemdesc" value="" required></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="bid" class="col-md-2 control-label">Starting bid</label>
+
+                            <div class="col-md-10">
+                                <input id="bid" type="number" class="form-control" name="bid" value="" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="increment" class="col-md-2 control-label">Incremental value</label>
+
+                            <div class="col-md-10">
+                                <select class="form-control">
+                                    <option value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                    <option value="200">200</option>
+                                    <option value="300">300</option>
+                                    <option value="500">500</option>
+                                    <option value="1000">1000</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="bid" class="col-md-2 control-label">Images</label>
+
+                            <div class="col-md-10">
+                                <input id="file1" type="file" class="form-control" name="file1" value="" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <input id="file2" type="file" class="form-control" name="file2" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <input id="file3" type="file" class="form-control" name="file3" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <input id="file4" type="file" class="form-control" name="file4" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
                                 <button type="submit" class="btn btn-success">
                                     Submit Auction
                                 </button>

@@ -10,6 +10,7 @@ class NewProductController extends Controller
     {
         $this->middleware('auth');
         // STYLES AND JS Controllers
+        $this->pagename = '';
         $this->css = '/css/pagestyles/profile.css';
         $this->js = '/js/profile/profile.js';
     }
@@ -21,6 +22,11 @@ class NewProductController extends Controller
      */
     public function index()
     {
-        return view('newproduct')->with(['csspath' => $this->css,'jspath' => $this->js]);
+        return view('newproduct')->with(['csspath' => $this->css,'jspath' => $this->js,'page_name' => $this->pagename]);
+    }
+
+    public function newproduct()
+    {
+    	
     }
 }

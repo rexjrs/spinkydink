@@ -16,6 +16,7 @@ class HomeController extends Controller
     {
         $this->middleware('guest');
         // STYLES AND JS Controllers
+        $this->pagename = 'home';
         $this->css = '/css/pagestyles/home.css';
         $this->js = '/js/home/countdown.js';
     }
@@ -34,6 +35,6 @@ class HomeController extends Controller
         $minutes += $since_start->h * 60;
         $minutes += $since_start->i * 60;
         $minutes += $since_start->s;
-        return view('home')->with(['csspath' => $this->css,'jspath' => $this->js,'time' => $time, 'diff' => $minutes]);
+        return view('home')->with(['csspath' => $this->css,'jspath' => $this->js,'page_name' => $this->pagename, 'time' => $time, 'diff' => $minutes]);
     }
 }

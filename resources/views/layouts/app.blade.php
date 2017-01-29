@@ -49,9 +49,9 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="{{ url('/')}}">Home</a></li>
-                <li><a href="{{ url('/auctions')}}">Auctions</a></li>
-                <li><a href="{{ url('/profile')}}">My Store</a></li> 
+                <li class="@if(!empty($page_name)) @if($page_name == 'home') active @endif @endif"><a href="{{ url('/')}}">Home</a></li>
+                <li class="@if(!empty($page_name)) @if($page_name == 'auctions') active @endif @endif"><a href="{{ url('/auctions')}}">Auctions</a></li>
+                <li class="@if(!empty($page_name)) @if($page_name == 'profile') active @endif @endif"><a href="{{ url('/profile')}}">My Store</a></li> 
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 @if (Auth::guest())

@@ -10,6 +10,7 @@ class AuctionController extends Controller
     {
         $this->middleware('guest');
         // STYLES AND JS Controllers
+        $this->pagename = 'auctions';
         $this->css = '/css/pagestyles/auction.css';
         $this->js = '/js/auction/countdown.js';
     }
@@ -29,6 +30,12 @@ class AuctionController extends Controller
         // $minutes += $since_start->i * 60;
         // $minutes += $since_start->s;
         // return view('home')->with(['csspath' => $this->css,'jspath' => $this->js,'time' => $time, 'diff' => $minutes]);
-        return view('auction')->with(['csspath' => $this->css,'jspath' => $this->js]);
+        return view('auction')->with(['csspath' => $this->css,'jspath' => $this->js, 'page_name' => $this->pagename]);
+    }
+
+    public function auction($auction)
+    {
+
+        return view('auctionexpand')->with([]);
     }
 }
