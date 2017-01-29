@@ -2,6 +2,15 @@
 	width: 100%;
 	height: 50px;
 	background: #34495e;
+	display: table;
+}
+.pagechild{
+	display: table-cell;
+	vertical-align: middle;
+}
+.pagechild img{
+	margin-left: 10px;
+	margin-right: 10px;
 }
 #main-content{
 	margin-top: 90px;

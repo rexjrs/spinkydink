@@ -12,12 +12,13 @@
     </div>
     <div class="row section-auctions">
         <div class="col-md-12">
-            @for ($i = 0; $i < 16; $i++)
-            <div class="col-md-3">
+            @for ($i = 0; $i < 15; $i++)
+            <div class="col-md-4">
                 <div class="auction-container text-center">
-                    <img src="http://storecdn.ais.co.th/media/catalog/product/cache/2/image/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone7-plus_matblk_850x850_2.jpg" class="img-responsive">
-                    <h4>iphone 7 - 128 GB</h4>
+                    <img src="http://www.fashiontechguru.com/wp-content/uploads/2016/11/MacBook-Pro-2016-2.jpg" class="img-responsive">
+                    <h4>Macbook Pro 15" - Touch Bar</h4>
                     <div class="clock"></div>
+                    <button class=" btn btn-primary btn-sm">View Auction</button>
                 </div>
             </div>
             @endfor

@@ -134,7 +134,15 @@
         </div>
         <!-- Content End -->
         <!-- Footer Start -->
-        <div class="pagefooter"></div>
+        <div class="pagefooter text-center">
+            <div class="pagechild">
+                <img src="/img/facebook.png" height="30">
+                <img src="/img/twitter.png" height="30">
+                <img src="/img/pinterest.png" height="30">
+                <img src="/img/instagram.png" height="30">
+                <img src="/img/tumblr.png" height="30">
+            </div>
+        </div>
         <!-- Footer End -->
     </div>
 
