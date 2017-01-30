@@ -15,7 +15,7 @@
         padding-top: 20px;
     }
 </style>
-<div class="container">
+<div class="container" style="height: 100%;">
     <div class="row section-login">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">

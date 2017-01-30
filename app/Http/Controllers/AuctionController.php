@@ -13,6 +13,7 @@ class AuctionController extends Controller
         $this->pagename = 'auctions';
         $this->css = '/css/pagestyles/auction.css';
         $this->js = '/js/auction/countdown.js';
+        $this->jss = '/js/auction/expand.js';
     }
 
     /**
@@ -36,6 +37,6 @@ class AuctionController extends Controller
     public function auction($auction)
     {
 
-        return view('auctionexpand')->with([]);
+        return view('auctionexpand')->with(['csspath' => $this->css,'jspath' => $this->jss]);
     }
 }
