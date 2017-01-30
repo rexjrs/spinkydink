@@ -60,10 +60,14 @@
                                 </select>
                             </div>
                         </div>
+                        <br>
+                        <p class="text-center warning-img">Images uploaded to SpinkyDink are resized. For the best quality images on your auction, please use land-scape images instead of portrait images.
+                        <br>(Turn your phone sideways and snap a pic)</p>
+                        <br>
                         <div class="form-group">
-                            <label for="bid" class="col-md-2 control-label">Images</label>
+                            <label for="file1" class="col-md-2 control-label">Main Image</label>
 
-                            <div class="col-md-10">
+                            <div class="col-md-10 text-center">
                                 <input id="file1" type="file" class="form-control" name="file1" value="" required>
                             </div>
                         </div>

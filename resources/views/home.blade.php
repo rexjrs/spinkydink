@@ -18,7 +18,7 @@
                     <img src="http://www.fashiontechguru.com/wp-content/uploads/2016/11/MacBook-Pro-2016-2.jpg" class="img-responsive">
                     <h4>Macbook Pro 15" - Touch Bar</h4>
                     <div class="clock"></div>
-                    <button class=" btn btn-primary btn-sm">View Auction</button>
+                    <a href="{{url('/auctions/1')}}"><button class=" btn btn-primary btn-sm">View Auction</button></a>
                 </div>
             </div>
             @endfor
