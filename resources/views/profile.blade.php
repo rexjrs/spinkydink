@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-md-6">
                     <h4>Macbook Pro 15" - Touch Bar</h4>
-                    <h5>Winning bid: 2150 THB</h5>
+                    <h5>Bid: 2150 THB</h5><span class="label label-warning">ENDED</span>
                     <h5>Description: Latest Macbook Pro 15" 2016. It is stunning and cutting edge. An Ultimate work horse to get your work done.</h5>
                     <center><button class="btn btn-primary btn-sm">View Auction</button> <button class="btn btn-danger btn-sm">Delete Auction</button></center>
                 </div>

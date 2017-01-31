@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Auctions;
 use Illuminate\Http\Request;
 
 class AuctionController extends Controller
@@ -31,12 +32,15 @@ class AuctionController extends Controller
         // $minutes += $since_start->i * 60;
         // $minutes += $since_start->s;
         // return view('home')->with(['csspath' => $this->css,'jspath' => $this->js,'time' => $time, 'diff' => $minutes]);
-        return view('auction')->with(['csspath' => $this->css,'jspath' => $this->js, 'page_name' => $this->pagename]);
+
+        $auctions = Auctions::all();
+
+        return view('auction')->with(['csspath' => $this->css,'jspath' => $this->js, 'page_name' => $this->pagename,'auctions' => $auctions]);
     }
 
     public function auction($auction)
     {
-
-        return view('auctionexpand')->with(['csspath' => $this->css,'jspath' => $this->jss]);
+        $auctions = Auctions::where('product_id', $auction)->first();
+        return view('auctionexpand')->with(['csspath' => $this->css,'jspath' => $this->jss, 'auctions' => $auctions]);
     }
 }

@@ -18,30 +18,38 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="http://www.fashiontechguru.com/wp-content/uploads/2016/11/MacBook-Pro-2016-2.jpg" class="fancybox" rel="gallery">
-                            <img src="http://www.fashiontechguru.com/wp-content/uploads/2016/11/MacBook-Pro-2016-2.jpg" class="img-responsive thumbnail" />
+                        <a href="/uploads/fullsize/{{$auctions['image1']}}" class="fancybox" rel="gallery">
+                            <img src="/uploads/fullsize/{{$auctions['image1']}}" class="img-responsive thumbnail" />
                         </a>
                     </div>
                 </div>
                 <div class="row pad-fix hidden-xs hidden-sm">
-                @for ($i = 0; $i < 3; $i++)
                     <div class="col-md-4 no-pad">
-                        <a href="http://www.fashiontechguru.com/wp-content/uploads/2016/11/MacBook-Pro-2016-2.jpg" class="fancybox" rel="gallery">
-                            <img src="http://www.fashiontechguru.com/wp-content/uploads/2016/11/MacBook-Pro-2016-2.jpg" class="img-responsive thumbnail" />
+                        <a href="/uploads/fullsize/{{$auctions['image2']}}" class="fancybox" rel="gallery">
+                            <img src="/uploads/fullsize/{{$auctions['image1']}}" class="img-responsive thumbnail" />
                         </a>
                     </div>
-                @endfor
+                    <div class="col-md-4 no-pad">
+                        <a href="/uploads/fullsize/{{$auctions['image3']}}" class="fancybox" rel="gallery">
+                            <img src="/uploads/fullsize/{{$auctions['image2']}}" class="img-responsive thumbnail" />
+                        </a>
+                    </div>
+                    <div class="col-md-4 no-pad">
+                        <a href="/uploads/fullsize/{{$auctions['image4']}}" class="fancybox" rel="gallery">
+                            <img src="/uploads/fullsize/{{$auctions['image3']}}" class="img-responsive thumbnail" />
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <h3>Macbook Pro 15" - Touch Bar</h3>
+                <h3>{{$auctions['name']}}</h3>
                 <br>
                 <h4>Description</h4>
-                <h5>Latest Macbook Pro 15" 2016. It is stunning and cutting edge. An Ultimate work horse to get your work done.</h5>
+                <h5>{{$auctions['description']}}</h5>
                 <h4>OFFER ENDS IN</h4>
                 <center><div class="clock expanded-clock"></div></center>
                 <h4>Current Bid (THB)</h4>
-                <center><input type="number" name="" value="1250" readonly="" class="expanded-clock"></center>
+                <center><input type="number" name="" value="{{$auctions['bid']}}" readonly="" class="expanded-clock"></center>
                 <form>
                     <div class="row">
                         <div class="form-group">

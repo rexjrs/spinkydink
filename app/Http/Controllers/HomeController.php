@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Auctions;
 use DateTime;
 use Illuminate\Http\Request;
 
@@ -35,6 +36,10 @@ class HomeController extends Controller
         $minutes += $since_start->h * 60;
         $minutes += $since_start->i * 60;
         $minutes += $since_start->s;
-        return view('home')->with(['csspath' => $this->css,'jspath' => $this->js,'page_name' => $this->pagename, 'time' => $time, 'diff' => $minutes]);
+
+
+        $auctions = Auctions::all();
+
+        return view('home')->with(['csspath' => $this->css,'jspath' => $this->js,'page_name' => $this->pagename, 'time' => $time, 'diff' => $minutes, 'auctions' => $auctions]);
     }
 }

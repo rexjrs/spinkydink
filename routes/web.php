@@ -22,4 +22,4 @@ Route::get('/auctions/{id}', 'AuctionController@auction');
 Route::get('/profile', 'ProfileController@index');
 
 Route::get('/newproduct', 'NewProductController@index');
-Route::post('/addproduct', 'NewProductController@newproduct');
+Route::post('/addproduct', 'NewProductController@addproduct');

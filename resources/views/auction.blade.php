@@ -39,16 +39,17 @@
 <div class="container">
     <div class="row section-auction">
         <div class="col-md-12">
-            @for ($i = 0; $i < 15; $i++)
-            <div class="col-md-4">
+            @foreach($auctions as $auction)
+            <div class="col-md-4" class="category_{{$auction['category']}}">
                 <div class="auction-container text-center">
-                    <img src="http://www.fashiontechguru.com/wp-content/uploads/2016/11/MacBook-Pro-2016-2.jpg" class="img-responsive">
-                    <h4>Macbook Pro 15" - Touch Bar</h4>
+                    <img src="/uploads/fullsize/{{$auction['image1']}}" class="img-responsive">
+                    <h4>{{$auction['name']}}</h4>
+                    <h5>{{$auction['bid']}} THB</h5>
                     <div class="clock"></div>
-                    <a href="{{url('/auctions/1')}}"><button class=" btn btn-primary btn-sm">View Auction</button></a>
+                    <a href="{{url('/auctions')}}/{{$auction['product_id']}}"><button class=" btn btn-primary btn-sm">View Auction</button></a>
                 </div>
             </div>
-            @endfor
+            @endforeach
         </div>
     </div>
 </div>

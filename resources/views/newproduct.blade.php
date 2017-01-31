@@ -21,7 +21,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">New Auction</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/addproduct') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/addproduct') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="itemname" class="col-md-2 control-label">Item name</label>
@@ -38,6 +38,17 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="category" class="col-md-2 control-label">Category</label>
+
+                            <div class="col-md-10">
+                                <select id="category" class="form-control" name="category" required>
+                                    <option value="Games">Games</option>
+                                    <option value="Gadgets">Gadgets</option>
+                                    <option value="Books">Books</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="bid" class="col-md-2 control-label">Starting bid</label>
 
                             <div class="col-md-10">
@@ -48,7 +59,7 @@
                             <label for="increment" class="col-md-2 control-label">Incremental value</label>
 
                             <div class="col-md-10">
-                                <select class="form-control">
+                                <select id="increment" class="form-control" name="increment" required>
                                     <option value="10">10</option>
                                     <option value="20">20</option>
                                     <option value="50">50</option>
@@ -65,25 +76,25 @@
                         <br>(Turn your phone sideways and snap a pic)</p>
                         <br>
                         <div class="form-group">
-                            <label for="file1" class="col-md-2 control-label">Main Image</label>
+                            <label for="file" class="col-md-2 control-label">Main Image</label>
 
                             <div class="col-md-10 text-center">
-                                <input id="file1" type="file" class="form-control" name="file1" value="" required>
+                                <input id="file1" type="file" class="form-control" name="file1" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-10 col-md-offset-2">
-                                <input id="file2" type="file" class="form-control" name="file2" value="">
+                                <input id="file2" type="file" class="form-control" name="file2">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-10 col-md-offset-2">
-                                <input id="file3" type="file" class="form-control" name="file3" value="">
+                                <input id="file3" type="file" class="form-control" name="file3">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-10 col-md-offset-2">
-                                <input id="file4" type="file" class="form-control" name="file4" value="">
+                                <input id="file4" type="file" class="form-control" name="file4">
                             </div>
                         </div>
                         <div class="form-group">
