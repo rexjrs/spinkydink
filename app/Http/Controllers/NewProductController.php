@@ -31,32 +31,54 @@ class NewProductController extends Controller
 
     public function addproduct(Request $request)
     {
-        // if ($request->hasFile('file')) {
-        //     echo "file found";
-        // }else{
-        //     echo "no file";
-        // }
-
         $image = $request->file('file1');
         $filename  = time() . '.' . $image->getClientOriginalExtension();
-
         $path = public_path('uploads/fullsize/' . $filename);
+        Image::make($image->getRealPath())->resize(1020, 783)->save($path);
 
 
-        Image::make($image->getRealPath())->resize(200, 200)->save($path);
+        if ($request->hasFile('file2')) {
+            $image2 = $request->file('file2');
+            $filename2  = time() . '2.' . $image->getClientOriginalExtension();
+            $path2 = public_path('uploads/fullsize/' . $filename2);
+            Image::make($image2->getRealPath())->resize(1020, 783)->save($path2);
+        }else{
+            $filename2 = $filename;
+        }
+
+        if ($request->hasFile('file3')) {
+            $image3 = $request->file('file3');
+            $filename3  = time() . '3.' . $image->getClientOriginalExtension();
+            $path3 = public_path('uploads/fullsize/' . $filename3);
+            Image::make($image3->getRealPath())->resize(1020, 783)->save($path3);
+        }else{
+            $filename3 = $filename;
+        }
+
+        if ($request->hasFile('file4')) {
+            $image4 = $request->file('file4');
+            $filename4  = time() . '4.' . $image->getClientOriginalExtension();
+            $path4 = public_path('uploads/fullsize/' . $filename4);
+            Image::make($image4->getRealPath())->resize(1020, 783)->save($path4);
+        }else{
+            $filename4 = $filename;
+        }
 
         Auctions::create([
             'name' => $request->itemname,
+            'user' => Auth::user()->username(),
             'description' => $request->itemdesc,
             'category' => $request->category,
             'bid' => $request->bid,
-            'bidder' => Auth::user()->username(),
+            'bidder' => 'none',
             'increment' => $request->increment,
-            'date_end' => $request->dateend,
-            'image1' => 'IMG_1030.jpg',
-            'image2' => 'test',
-            'image3' => 'test',
-            'image4' => 'test'
+            'date_end' => $request->date,
+            'image1' => $filename,
+            'image2' => $filename2,
+            'image3' => $filename3,
+            'image4' => $filename4
         ]);
+
+        return redirect('/');
     }
 }

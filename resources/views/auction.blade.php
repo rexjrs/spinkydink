@@ -38,6 +38,7 @@
 </div>
 <div class="container">
     <div class="row section-auction">
+    <input type="text" name="" hidden="" value="{{$aucdates}}" id="time-server">
         <div class="col-md-12">
             @foreach($auctions as $auction)
             <div class="col-md-4" class="category_{{$auction['category']}}">
@@ -45,7 +46,7 @@
                     <img src="/uploads/fullsize/{{$auction['image1']}}" class="img-responsive">
                     <h4>{{$auction['name']}}</h4>
                     <h5>{{$auction['bid']}} THB</h5>
-                    <div class="clock"></div>
+                    <div class="clock clock{{$loop->index}}"></div>
                     <a href="{{url('/auctions')}}/{{$auction['product_id']}}"><button class=" btn btn-primary btn-sm">View Auction</button></a>
                 </div>
             </div>

@@ -31,7 +31,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="itemdesc" class="col-md-2 control-label">Decsription</label>
+                            <label for="itemdesc" class="col-md-2 control-label">Description</label>
 
                             <div class="col-md-10">
                                 <textarea id="itemdesc" class="form-control" name="itemdesc" value="" required></textarea>
@@ -69,6 +69,13 @@
                                     <option value="500">500</option>
                                     <option value="1000">1000</option>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="increment" class="col-md-2 control-label">Ending Date</label>
+
+                            <div class="col-md-10">
+                                <input id="date" type="datetime-local" class="form-control" name="date" min="2017-02-02" required>
                             </div>
                         </div>
                         <br>

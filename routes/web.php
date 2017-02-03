@@ -18,6 +18,7 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/auctions', 'AuctionController@index');
 Route::get('/auctions/{id}', 'AuctionController@auction');
+Route::post('/placeBid/{id}', 'AuctionController@placeBid');
 
 Route::get('/profile', 'ProfileController@index');
 

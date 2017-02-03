@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Auctions;
+use DateTime;
 use Illuminate\Http\Request;
 
 class AuctionController extends Controller
@@ -24,23 +25,33 @@ class AuctionController extends Controller
      */
     public function index()
     {
-        // $now = new DateTime(); 
-        // $time = $now->format("Y-m-d H:i:s"); 
-        // $since_start = $now->diff(new DateTime('2017-01-28 16:25:00'));
-        // $minutes = $since_start->days * 24 * 60;
-        // $minutes += $since_start->h * 60;
-        // $minutes += $since_start->i * 60;
-        // $minutes += $since_start->s;
-        // return view('home')->with(['csspath' => $this->css,'jspath' => $this->js,'time' => $time, 'diff' => $minutes]);
+        $now = new DateTime(); 
 
-        $auctions = Auctions::all();
+        $auctions = Auctions::where('date_end', '>', $now)->get();
 
-        return view('auction')->with(['csspath' => $this->css,'jspath' => $this->js, 'page_name' => $this->pagename,'auctions' => $auctions]);
+        $auctionLong = [];
+        foreach($auctions as $auction){
+            array_push($auctionLong, $auction['date_end']);
+        }
+        $auctionLong = json_encode($auctionLong);
+
+        return view('auction')->with([
+            'csspath' => $this->css,
+            'jspath' => $this->js, 
+            'page_name' => $this->pagename,
+            'auctions' => $auctions,
+            'aucdates' => $auctionLong
+            ]);
     }
 
     public function auction($auction)
     {
         $auctions = Auctions::where('product_id', $auction)->first();
+        return view('auctionexpand')->with(['csspath' => $this->css,'jspath' => $this->jss, 'auctions' => $auctions]);
+    }
+
+    public function placeBid($auction)
+    {
         return view('auctionexpand')->with(['csspath' => $this->css,'jspath' => $this->jss, 'auctions' => $auctions]);
     }
 }

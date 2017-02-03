@@ -14,6 +14,7 @@
 </style>
 <div class="container">
     <div class="expand-container">
+        <input type="text" name="" hidden="" value="{{$auctions['date_end']}}" id="time-server">
         <div class="row">
             <div class="col-md-6">
                 <div class="row">
@@ -26,17 +27,17 @@
                 <div class="row pad-fix hidden-xs hidden-sm">
                     <div class="col-md-4 no-pad">
                         <a href="/uploads/fullsize/{{$auctions['image2']}}" class="fancybox" rel="gallery">
-                            <img src="/uploads/fullsize/{{$auctions['image1']}}" class="img-responsive thumbnail" />
-                        </a>
-                    </div>
-                    <div class="col-md-4 no-pad">
-                        <a href="/uploads/fullsize/{{$auctions['image3']}}" class="fancybox" rel="gallery">
                             <img src="/uploads/fullsize/{{$auctions['image2']}}" class="img-responsive thumbnail" />
                         </a>
                     </div>
                     <div class="col-md-4 no-pad">
-                        <a href="/uploads/fullsize/{{$auctions['image4']}}" class="fancybox" rel="gallery">
+                        <a href="/uploads/fullsize/{{$auctions['image3']}}" class="fancybox" rel="gallery">
                             <img src="/uploads/fullsize/{{$auctions['image3']}}" class="img-responsive thumbnail" />
+                        </a>
+                    </div>
+                    <div class="col-md-4 no-pad">
+                        <a href="/uploads/fullsize/{{$auctions['image4']}}" class="fancybox" rel="gallery">
+                            <img src="/uploads/fullsize/{{$auctions['image4']}}" class="img-responsive thumbnail" />
                         </a>
                     </div>
                 </div>
@@ -44,6 +45,8 @@
             <div class="col-md-6">
                 <h3>{{$auctions['name']}}</h3>
                 <br>
+                <h4>Seller</h4>
+                <h5>{{$auctions['user']}}</h5>
                 <h4>Description</h4>
                 <h5>{{$auctions['description']}}</h5>
                 <h4>OFFER ENDS IN</h4>

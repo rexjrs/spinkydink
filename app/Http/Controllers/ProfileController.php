@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Auctions;
+use Auth;
+use DateTime;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -22,6 +25,19 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('profile')->with(['csspath' => $this->css,'jspath' => $this->js,'page_name' => $this->pagename]);
+        $now = new DateTime(); 
+
+        $auctions = Auctions::where('user',Auth::user()->username())->paginate(4);
+
+        $ended = [];
+        foreach($auctions as $auction){
+            if(new DateTime($auction['date_end']) > $now){
+                array_push($ended, 'LIVE');
+            }else{
+                array_push($ended, 'ENDED');
+            }
+        }
+
+        return view('profile')->with(['csspath' => $this->css,'jspath' => $this->js,'page_name' => $this->pagename, 'myauc' => $auctions,'ended' => $ended]);
     }
 }

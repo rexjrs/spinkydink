@@ -38,8 +38,13 @@ class HomeController extends Controller
         $minutes += $since_start->s;
 
 
-        $auctions = Auctions::all();
+        $auctions = Auctions::where('date_end', '>', $now)->get();
+        $auctionLong = [];
+        foreach($auctions as $auction){
+            array_push($auctionLong, $auction['date_end']);
+        }
+        $auctionLong = json_encode($auctionLong);
 
-        return view('home')->with(['csspath' => $this->css,'jspath' => $this->js,'page_name' => $this->pagename, 'time' => $time, 'diff' => $minutes, 'auctions' => $auctions]);
+        return view('home')->with(['csspath' => $this->css,'jspath' => $this->js,'page_name' => $this->pagename, 'time' => $time, 'diff' => $minutes, 'auctions' => $auctions, 'aucdates' => $auctionLong]);
     }
 }
