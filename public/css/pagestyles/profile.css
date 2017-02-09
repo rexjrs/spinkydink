@@ -31,3 +31,26 @@
 .warning-img{
 	color: red;
 }
+/*Invoice Page*/
+.invoice-table thead tr td{
+	background: #16a085;
+	color: white;
+	font-size: 20px;
+}
+.invoice-table thead tr td:first-child{
+	padding: 10px;
+}
+.invoice-table tbody tr td{
+	border-top: 1px solid #ccc;
+	padding: 10px;
+}
+.invoice-table tbody tr:last-child{
+	border-bottom: 1px solid #ccc;
+}
+.seller-info input{
+	width: 100%;
+	text-align: center;
+}
+.top-pad{
+	padding-top: 50px;
+}

@@ -18,9 +18,10 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/auctions', 'AuctionController@index');
 Route::get('/auctions/{id}', 'AuctionController@auction');
-Route::post('/placeBid/{id}', 'AuctionController@placeBid');
+Route::post('/placeBid/{id}', 'AuctionController@placeBid')->middleware('auth');
 
 Route::get('/profile', 'ProfileController@index');
+Route::get('/invoice/{id}', 'ProfileController@invoice');
 
 Route::get('/newproduct', 'NewProductController@index');
 Route::post('/addproduct', 'NewProductController@addproduct');

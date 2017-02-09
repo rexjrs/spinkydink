@@ -53,13 +53,21 @@
                 <center><div class="clock expanded-clock"></div></center>
                 <h4>Current Bid (THB)</h4>
                 <center><input type="number" name="" value="{{$auctions['bid']}}" readonly="" class="expanded-clock"></center>
-                <form>
+                <form method="POST" role="form" action="{{ url('/placeBid') }}/{{$auctions['product_id']}}">
+                    @if($done == true)
                     <div class="row">
+                        {{ csrf_field() }}
                         <div class="form-group">
                             <label for="newbid" class="col-md-12 control-label">Your Bid</label>
 
                             <div class="col-md-4 col-md-offset-4">
-                                <input id="newbid" type="text" class="form-control" name="newbid" value="" required autofocus>
+                                <input id="newbid" type="number" class="form-control" name="newbid" value="" required autofocus>
+
+                                @if (Session::has('errorbid'))
+                                    <span class="help-block">
+                                        <strong>{{Session::get('errorbid') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -73,6 +81,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                 </form>
             </div>
         </div>
@@ -91,13 +100,13 @@
                           </tr>
                       </thead>
                       <tbody>
-                        @for ($e = 0; $e < 10; $e++)
+                        @foreach($bids as $bid)
                           <tr>
-                              <td>Thomas Charlesworth</td>
-                              <td>1250</td>
-                              <td>3 days ago</td>
+                              <td>{{$bid['user']}}</td>
+                              <td>{{$bid['bid']}}</td>
+                              <td>{{$bid['created_at']}}</td>
                           </tr>
-                        @endfor
+                        @endforeach
                       </tbody>
                   </table>
                 </div>

@@ -52,14 +52,24 @@
                     <h4>{{$auc['name']}}</h4>
                     <h5>Bid: {{$auc['bid']}} THB</h5><span class="label @if($ended[$loop->index] == 'ENDED') label-danger @else label-success @endif">{{$ended[$loop->index]}}</span>
                     <h5>Description: {{$auc['description']}}</h5>
-                    <center><button class="btn btn-primary btn-sm btn-margin">View Auction</button>@if($ended[$loop->index] == 'LIVE')<button class="btn btn-warning btn-sm btn-margin">Edit Auction</button>@endif</center>
+                    <center>
+                        <a href="{{url('/auctions')}}/{{$auc['product_id']}}">
+                            <button class="btn btn-primary btn-sm btn-margin">View Auction</button>
+                        </a>
+                        @if($ended[$loop->index] == 'LIVE')
+                            <button class="btn btn-warning btn-sm btn-margin">Edit Auction</button>
+                        @endif
+                        @if($ended[$loop->index] == 'ENDED')
+                        <form method="POST" action="">
+                            <button class="btn btn-danger btn-sm btn-margin">Archive</button>
+                        </form>
+                        @endif
+
+                    </center>
                 </div>
             </div>
         </div>
     @endforeach
-        <div class="col-md-12 text-center">
-            {{ $myauc->links() }}
-        </div>
     </div>
     <div class="row">
         <div class="col-md-12 text-center">
@@ -68,21 +78,21 @@
         </div>
     </div>
     <div class="row auction-section">
-    @for ($i = 0; $i < 3; $i++)
+    @foreach($invoices as $invoice)
         <div class="col-md-6 auction-container">
             <div class="auction-wrapper">
                 <div class="col-md-6">
-                    <img src="http://www.fashiontechguru.com/wp-content/uploads/2016/11/MacBook-Pro-2016-2.jpg" class="img-responsive">
+                    <img src="/uploads/fullsize/{{$invoice['image1']}}" class="img-responsive">
                 </div>
                 <div class="col-md-6">
-                    <h4>Macbook Pro 15" - Touch Bar</h4>
-                    <h5>Winning bid: 2150 THB</h5>
-                    <h5>Description: Latest Macbook Pro 15" 2016. It is stunning and cutting edge. An Ultimate work horse to get your work done.</h5>
-                    <center><button class="btn btn-primary btn-sm">View Invoice</button></center>
+                    <h4>{{$invoice['name']}}</h4>
+                    <h5>Winning bid: {{$invoice['bid']}} THB</h5>
+                    <h5>Description: {{$invoice['description']}}</h5>
+                    <center><a href="{{ url('/invoice')}}/{{$invoice['product_id']}}"><button class="btn btn-primary btn-sm">View Invoice</button></a></center>
                 </div>
             </div>
         </div>
-    @endfor
+    @endforeach
     </div>
 </div>
 @endsection
