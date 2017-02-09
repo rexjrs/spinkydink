@@ -22,6 +22,9 @@ Route::post('/placeBid/{id}', 'AuctionController@placeBid')->middleware('auth');
 
 Route::get('/profile', 'ProfileController@index');
 Route::get('/invoice/{id}', 'ProfileController@invoice');
+Route::post('/archive', 'ProfileController@archive');
+Route::get('/profileinfo', 'ProfileController@profileinfo');
+Route::post('/createprofile', 'ProfileController@createprofile');
 
 Route::get('/newproduct', 'NewProductController@index');
 Route::post('/addproduct', 'NewProductController@addproduct');

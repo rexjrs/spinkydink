@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Auctions;
+use App\Profiles;
 use Auth;
 use DateTime;
 use Illuminate\Http\Request;
@@ -27,7 +28,7 @@ class ProfileController extends Controller
     {
         $now = new DateTime(); 
 
-        $auctions = Auctions::where('user',Auth::user()->username())->orderBy('date_end', 'desc')->get();
+        $auctions = Auctions::where('user',Auth::user()->username())->where('archive', 0)->orderBy('date_end', 'desc')->get();
 
         $ended = [];
         foreach($auctions as $auction){
@@ -61,5 +62,49 @@ class ProfileController extends Controller
             'jspath' => $this->js,
             'invoice' => $invoice
         ]);
+    }
+
+    public function archive(Request $request)
+    {
+        Auctions::where('product_id', $request->listing)->update([
+            'archive' => 1,
+        ]);
+        return back();
+    }
+
+    public function profileinfo()
+    {
+        $profile = Profiles::where('user',Auth::user()->username())->first();
+        if(!$profile){
+            return view('profilecreate')->with([
+                'csspath' => $this->css,
+                'jspath' => $this->js
+            ]);
+        }else{
+
+        }
+        return view('profileinfo')->with([
+            'csspath' => $this->css,
+            'jspath' => $this->js
+        ]);
+    }
+
+    public function createprofile(Request $request)
+    {
+        Profiles::create([
+            'user' => Auth::user()->username(),
+            'fname' => $request->fname,
+            'lname' => $request->lname,
+            'banknumber' => $request->accountnumber,
+            'bankname' => $request->bankname,
+            'bankholder' => $request->accountname,
+            'address1' => $request->address1,
+            'address2' => $request->address2,
+            'zipcode' => $request->zipcode,
+            'city' => $request->city,
+            'country' => $request->country,
+            'phone' => $request->phone
+        ]);
+        return redirect('/profileinfo');
     }
 }

@@ -4,38 +4,6 @@
 <div class="container section-all">
     <div class="row">
         <div class="col-md-12 text-center">
-            <h3>Welcome back, Thomas Charlesworth</h3>
-            <hr>
-        </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2 address-section">
-            <h4>Address</h4>
-            <label>Line One</label><br>
-            <input type="text" name="" value="76/119 Condo Grene Suthisan">
-            <br>
-            <label>Line Two</label><br>
-            <input type="text" name="" value="Sutthisan Winitchai Road, Huay Kwang">
-            <br>
-            <label>Zip Code</label><br>
-            <input type="text" name="" value="10310">
-            <br>
-            <label>City</label><br>
-            <input type="text" name="" value="Bangkok">
-            <br>
-            <label>Country</label><br>
-            <input type="text" name="" value="Thailand">
-            <br>
-            <label>Phone</label><br>
-            <input type="number" name="" value="0946481922">
-            <br>
-            <label>E-Mail</label><br>
-            <input type="text" name="" value="thomas.charlesworths@gmail.com">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 text-center">
             <h3>My Auctions</h3>
             <hr>
             <a href="{{url('/newproduct')}}"><button class="btn btn-info btn-md">New Auction</button></a>
@@ -60,11 +28,12 @@
                             <button class="btn btn-warning btn-sm btn-margin">Edit Auction</button>
                         @endif
                         @if($ended[$loop->index] == 'ENDED')
-                        <form method="POST" action="">
-                            <button class="btn btn-danger btn-sm btn-margin">Archive</button>
+                        <form id="form-{{$auc['product_id']}}" method="POST" action="{{ url('/archive')}}" style="display: none;" onsubmit="return confirm('You sure you want to archive?')">
+                        {{ csrf_field() }}
+                            <input type="number" name="listing" value="{{$auc['product_id']}}" hidden="">
                         </form>
+                            <button class="btn btn-danger btn-sm btn-margin" type="submit" form="form-{{$auc['product_id']}}">Archive</button>
                         @endif
-
                     </center>
                 </div>
             </div>
