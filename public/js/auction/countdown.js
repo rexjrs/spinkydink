@@ -9,4 +9,17 @@ $( document ).ready(function() {
 			location.reload();
 		});
 	}
+	$(".category-select").on("click",function(){
+		var id = $(this).attr('id').slice(9);
+		changeCat(id);
+	});
+
+	function changeCat(cat){
+		$(".cat-all").hide();
+		$(".noaucs").hide();
+		$(".cat-"+cat).show();
+		if ($(".cat-"+cat).length < 1) {
+		   $(".noaucs").show();
+		}
+	};
 });

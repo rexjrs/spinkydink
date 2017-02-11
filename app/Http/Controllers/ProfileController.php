@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Auctions;
 use App\Profiles;
+use App\User;
 use Auth;
 use DateTime;
 use Illuminate\Http\Request;
@@ -57,10 +58,15 @@ class ProfileController extends Controller
         if($invoice['bidder'] !== Auth::user()->username()){
             return redirect('home');
         }
+        $bankdetails = Profiles::where('user',$invoice['user'])->first();
+        $email = User::where('username', $invoice['user'])->pluck('email');
+        $email = trim($email,'[]"');
         return view('invoice')->with([
             'csspath' => $this->css,
             'jspath' => $this->js,
-            'invoice' => $invoice
+            'invoice' => $invoice,
+            'bankdetails' => $bankdetails,
+            'email' => $email
         ]);
     }
 
@@ -75,17 +81,20 @@ class ProfileController extends Controller
     public function profileinfo()
     {
         $profile = Profiles::where('user',Auth::user()->username())->first();
+        $email = Auth::user()->email();
         if(!$profile){
             return view('profilecreate')->with([
                 'csspath' => $this->css,
-                'jspath' => $this->js
+                'jspath' => $this->js,
             ]);
         }else{
 
         }
         return view('profileinfo')->with([
             'csspath' => $this->css,
-            'jspath' => $this->js
+            'jspath' => $this->js,
+            'profile' => $profile,
+            'email' => $email
         ]);
     }
 

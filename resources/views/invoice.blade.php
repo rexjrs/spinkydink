@@ -68,16 +68,16 @@
     <div class="row">
     	<div class="col-md-8 col-md-offset-2 seller-info">
             <label>Bank Name</label><br>
-            <input type="text" name="" value="Kasikorn Bank">
+            <input type="text" name="" value="{{$bankdetails['bankname']}}">
             <br>
             <label>Account Number</label><br>
-            <input type="text" name="" value="123912390123">
+            <input type="text" name="" value="{{$bankdetails['banknumber']}}">
             <br>
             <label>Phone Number</label><br>
-            <input type="text" name="" value="0946481922">
+            <input type="text" name="" value="{{$bankdetails['phone']}}">
             <br>
             <label>E-Mail</label><br>
-            <input type="text" name="" value="thomas.charlesworths@gmail.com">
+            <input type="text" name="" value="{{$email}}">
     	</div>
     </div>
     <br>

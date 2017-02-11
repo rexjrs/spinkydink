@@ -38,7 +38,7 @@ class HomeController extends Controller
         $minutes += $since_start->s;
 
 
-        $auctions = Auctions::where('date_end', '>', $now)->get();
+        $auctions = Auctions::where('date_end', '>', $now)->orderBy('date_end', 'asc')->paginate(6);
         $auctionLong = [];
         foreach($auctions as $auction){
             array_push($auctionLong, $auction['date_end']);

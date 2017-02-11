@@ -22,6 +22,11 @@ class User extends Authenticatable
     {
         return $this->username;
     }
+
+    public function email()
+    {
+        return $this->email;
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

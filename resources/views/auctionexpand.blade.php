@@ -64,7 +64,7 @@
                                 <input id="newbid" type="number" class="form-control" name="newbid" value="" required autofocus>
 
                                 @if (Session::has('errorbid'))
-                                    <span class="help-block">
+                                    <span class="help-block redblock">
                                         <strong>{{Session::get('errorbid') }}</strong>
                                     </span>
                                 @endif

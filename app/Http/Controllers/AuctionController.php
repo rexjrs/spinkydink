@@ -70,8 +70,25 @@ class AuctionController extends Controller
     {
         $now = new DateTime(); 
         $auction = Auctions::where('product_id',$auctionID)->first();
-        if(new DateTime($auction['date_end']) > $now && $auction['bid']+$auction['increment']-1 < $request->newbid){
 
+        if($auction['user'] == Auth::user()->username()){
+            Session::flash('errorbid', "You cannot bid on your own auction!");
+            return back();
+        }
+
+        $to_time = strtotime($auction['date_end']);
+        $from_time = strtotime($now->format("Y-m-d H:i:s"));
+        $seconds = round(abs($to_time - $from_time));
+
+
+
+        if(new DateTime($auction['date_end']) > $now && $auction['bid']+$auction['increment']-1 < $request->newbid){
+            if($seconds < 11){
+                $newdate = date('Y-m-d H:i:s', strtotime($auction['date_end'].'+ 30 second'));
+                Auctions::where('product_id', $auctionID)->update([
+                    'date_end' => $newdate
+                ]);
+            }
             Auctions::where('product_id', $auctionID)->update([
                 'bidder' => Auth::user()->username(),
                 'bid' => $request->newbid

@@ -17,6 +17,8 @@
                 <div class="auction-container text-center">
                     <img src="/uploads/fullsize/{{$auction['image1']}}" class="img-responsive">
                     <h4>{{$auction['name']}}</h4>
+                    <h5>{{$auction['bid']}}</h5>
+                    <h5 class="cat-{{$auction['category']}}">{{$auction['category']}}</h5>
                     <div class="clock clock{{$loop->index}}"></div>
                     <a href="{{url('/auctions')}}/{{$auction['product_id']}}"><button class=" btn btn-primary btn-sm">View Auction</button></a>
                 </div>
